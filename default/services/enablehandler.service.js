@@ -32,10 +32,9 @@ export default class {
   callIfEnabled(fn) {
     if(!this.isEnabled())
       return false;
-    else {
-      fn();
-      return true;
-    }
+
+    fn();
+    return true;
   }
 
   //maybe there should be a separate class helper

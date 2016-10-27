@@ -12,7 +12,7 @@ export default class {
         type: 'number'
       },
       interval: {
-          type: 'number'
+        type: 'number'
       }
     };
   }
@@ -22,85 +22,83 @@ export default class {
       enableHandler,
       limitHandler,
       rangeHandler
-    }
+    };
   }
-
 
   static template() {
-  return `
-<style>
-  .wrapper {
-    color: var(--input-color);
-    display: flex;
-    height: 100%;
-    text-align: center;
-    width: 100%;
-  }
+    return `<style>
+      .wrapper {
+        color: var(--input-color, #9c9c9c);
+        display: flex;
+        height: 100%;
+        text-align: center;
+        width: 100%;
+      }
 
-  .flex {
-    display: flex;
-    justify-content: center;
-  }
+      .flex {
+        display: flex;
+        justify-content: center;
+      }
 
-  button {
-    flex: 1;
-    background-color: var(--input-bg);
-    border: none;
-    outline: none;
-  }
+      button {
+        flex: 1;
+        background-color: var(--input-bg, #f9f8f8);
+        border: none;
+        outline: none;
+      }
 
-  button:hover {
-    box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
-    cursor: pointer;
-    z-index: 99999;
+      button:hover {
+        box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
+        cursor: pointer;
+        z-index: 99999;
 
-  }
+      }
 
-  button.disabled {
-    cursor: not-allowed;;
-  }
+      button.disabled {
+        cursor: not-allowed;;
+      }
 
-  button.disabled:hover {
-    box-shadow: none;
-  }
+      button.disabled:hover {
+        box-shadow: none;
+      }
 
-  .label {
-    align-self: center;
-    -webkit-user-select: none;
-  }
+      .label {
+        align-self: center;
+        -webkit-user-select: none;
+      }
 
-  .outputValue {
-    flex: 3;
-    background-color: var(--input-bg);
-  }
+      .outputValue {
+        flex: 3;
+        background-color: var(--input-bg, #f9f8f8);
+      }
 
-  .-limit-low-low {
-    background-color: var(--low-low-color);
-  }
+      .-limit-low-low {
+        background-color: var(--low-low-color, rgb(236, 30, 83));
+      }
 
-  .-limit-low {
-    background-color: var(--low-color);
-  }
+      .-limit-low {
+        background-color: var(--low-color, rgb(254, 229, 128));
+      }
 
-  .-limit-high {
-    background-color: var(--high-color);
-  }
+      .-limit-high {
+        background-color: var(--high-color, rgb(254, 229, 128));
+      }
 
-  .-limit-high-high {
-    background-color: var(--high-high-color);
-  }
-</style>
-<div class="wrapper">
-  <button class="flex" on-mousedown="decrement" on-mouseup="_clearInterval" on-mouseout="_clearInterval">
-    <span class="label">-</span>
-  </button>
-  <div class="outputValue flex">
-    <span class="label">{{testValue}}</span>
-  </div>
-  <button class="flex" on-mousedown="increment" on-mouseup="_clearInterval" on-mouseout="_clearInterval">
-    <span class="label">+</span>
-  </button>
-</div>
+      .-limit-high-high {
+        background-color: var(--high-high-color, rgb(236, 30, 83));
+      }
+    </style>
+    <div class="wrapper">
+      <button class="flex" on-mousedown="decrement" on-mouseup="_clearInterval" on-mouseout="_clearInterval">
+        <span class="label">-</span>
+      </button>
+      <div class="outputValue flex">
+        <span class="label">{{testValue}}</span>
+      </div>
+      <button class="flex" on-mousedown="increment" on-mouseup="_clearInterval" on-mouseout="_clearInterval">
+        <span class="label">+</span>
+      </button>
+    </div>
 `;
   }
 
@@ -118,7 +116,6 @@ export default class {
   }
 
   _setValue(increment) {
-    let $ = this.$;
     this.intervalID = setInterval(() => {
       let steps = this.steps;
 

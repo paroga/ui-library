@@ -1,11 +1,11 @@
-import ButtonDefault from './button-default.control.js';
+import ButtonDefault from '../controls/button-default.control.js';
 import write from '../services/write.service.js';
 
 export default class extends ButtonDefault {
   static parameters() {
     let parameters = super.parameters();
     parameters.base = { type: 'address' };
-    parameters.value = { type: ['boolean', 'number', 'string'] };
+    parameters.value = { type: 'primitive' };
     return parameters;
   }
 

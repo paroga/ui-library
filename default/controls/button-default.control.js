@@ -4,7 +4,8 @@ export default class {
   static parameters() {
     return {
       label: {
-        type: 'string'
+        type: 'string',
+        default: ''
       }
     };
   }
@@ -12,40 +13,40 @@ export default class {
   static components() {
     return {
       enableHandler
-    }
+    };
   }
 
   static template() {
     return `
-<style>
-  button {
-    background-color: var(--input-bg);
-    border: none;
-    border-radius: var(--input-border-radius);
-    color: var(--input-color);
-    height: 100%;
-    width: 100%;
-  }
+    <style>
+      button {
+        background-color: var(--input-bg, #f9f8f8);
+        border: none;
+        border-radius: var(--input-border-radius, 2px);
+        color: var(--input-color, #9c9c9c);
+        height: 100%;
+        width: 100%;
+      }
 
-  button:hover {
-    border: none;
-    box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
-  }
+      button:hover {
+        border: none;
+        box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
+      }
 
-  button:focus {
-    outline: none;
-  }
+      button:focus {
+        outline: none;
+      }
 
-  button.disabled:hover {
-    box-shadow: none;
-  }
+      button.disabled:hover {
+        box-shadow: none;
+      }
 
-  button.disabled {
-    cursor: not-allowed;;
-  }
-</style>
-<button on-click="clicked">{{label}}</button>
-`;
+      button.disabled {
+        cursor: not-allowed;
+      }
+    </style>
+    <button on-click="clicked">{{label}}</button>
+    `;
   }
 
   createdCallback() {
@@ -53,7 +54,7 @@ export default class {
   }
 
   _fireClickedTrigger(value) {
-    var buttonClickedEvent = new CustomEvent('clicked');
+    let buttonClickedEvent = new CustomEvent('clicked');
 
     if (value)
       buttonClickedEvent = new CustomEvent('clicked', {detail: value});

@@ -4,7 +4,7 @@ export default class {
   static parameters() {
     return {
       name: { type: 'string' },
-      defaultPage: { type: 'page' }
+      defaultPage: { type: 'address' }
     };
   }
 

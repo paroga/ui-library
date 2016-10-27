@@ -11,11 +11,16 @@ export default class {
     if (!this.base)
       return;
     this.wpcp.subscribeData([{id:this.base}], e => {
-      if (typeof this.onchange === "function")
+      if (typeof this.onchange === 'function')
         this.onchange(e);
-    }, (ids, infos) => {
-      if (!ids[0])
-        console.error(`Can not subscrbe ${JSON.stringify(this.base)}:`, infos[0]);
     });
+  }
+
+  subscribe(fn){
+    if (!this.base){
+      return;
+    }
+
+    this.wpcp.subscribeData([{id:this.base}], fn);
   }
 }
