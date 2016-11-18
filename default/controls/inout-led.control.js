@@ -29,8 +29,8 @@ export default class {
             border-color: var(--input-border-color, #7f7d7d);
             border-radius:var(--input-border-radius, 2px);
             cursor:pointer;
-            width: 100%;
-            height: 100%;
+            width: 1em;
+            height: 1em;
             box-shadow: 0px 2px 5px 0px rgba(0,0,0,1);
         }
 

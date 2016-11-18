@@ -4,8 +4,8 @@ export default class {
   static parameters() {
     return {
       base: { type: 'address' },
-      activeImage: { type: 'string' },
-      inactiveImage: { type: 'string' },
+      activeImage: { type: 'address' },
+      inactiveImage: { type: 'address' },
     };
   }
 
@@ -36,6 +36,6 @@ export default class {
 
   updateValue(value) {
     let url = value ? this.activeImage : this.inactiveImage;
-    this.$('#image').css('background-image', `url(${url})`);
+    this.$('#image').css('background-image', `url(${url.replace(':', '/').join('/')})`);
   }
 }
